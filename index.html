@@ -205,31 +205,87 @@ nav{
 .tab-content{display:none;}
 .tab-content.active{display:block;}
 
+/* =========================
+   CASE GRID PREMIUM LAYOUT
+========================= */
+
 .case-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap:30px;
+  margin-top:30px;
 }
+
+/* Tablet */
+@media(max-width: 992px){
+  .case-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media(max-width: 600px){
+  .case-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   CASE CARD DESIGN
+========================= */
 
 .case-card{
   background:#fff;
-  border-radius:12px;
+  border-radius:16px;
   overflow:hidden;
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
 }
 
-.case-card img,
-.case-card video{
+.case-card:hover{
+  transform: translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Image Styling */
+.case-card img{
   width:100%;
-  height:220px;
+  height:260px;
   object-fit:cover;
+  display:block;
 }
 
-.case-card img{cursor:pointer;}
+/* Video Wrapper for proper ratio */
+.video-wrapper{
+  position:relative;
+  width:100%;
+  padding-top:56.25%; /* 16:9 ratio */
+}
 
+.video-wrapper iframe,
+.video-wrapper video{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:none;
+}
+
+/* Content */
 .case-content{
-  padding:20px;
-  text-align:center;
+  padding:18px;
+}
+
+.case-content h3{
+  font-size:18px;
+  margin-bottom:6px;
+  font-weight:600;
+}
+
+.case-content p{
+  font-size:14px;
+  color:#666;
 }
 
 /* LIGHTBOX */
@@ -313,7 +369,6 @@ footer{
     <a href="tel:+916280629466" class="icon-btn"><i class="fa-solid fa-phone"></i></a>
     <a href="https://www.linkedin.com/in/vinay-thakur-7244b024a/" class="icon-btn" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
     <a href="https://www.behance.net/vinaythakurr" class="icon-btn" target="_blank"><i class="fa-brands fa-behance"></i></a>
-    <a href="https://drive.google.com/" class="icon-btn" target="_blank"><i class="fa-brands fa-google-drive"></i></a>
   </div>
 </section>
 
