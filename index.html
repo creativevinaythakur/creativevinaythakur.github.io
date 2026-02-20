@@ -13,7 +13,6 @@
   --primary:#6C63FF;
   --accent:#FF4D6D;
   --dark:#111;
-  --bg:#f4f6ff;
 }
 
 *{
@@ -23,7 +22,7 @@
   font-family:'Poppins',sans-serif;
 }
 
-html{ scroll-behavior:smooth; }
+html{scroll-behavior:smooth;}
 
 body{
   background:linear-gradient(135deg,#ffffff,#eef1ff);
@@ -36,11 +35,9 @@ body{
   padding:0 20px;
 }
 
-section{ padding:90px 0; }
-
-h1,h2{ text-align:center; }
-
-h2{ margin-bottom:50px; font-weight:600; }
+section{padding:90px 0;}
+h1,h2{text-align:center;}
+h2{margin-bottom:50px;font-weight:600;}
 
 /* NAVBAR */
 
@@ -61,10 +58,7 @@ nav{
   align-items:center;
 }
 
-.logo{
-  font-weight:700;
-  color:var(--primary);
-}
+.logo{font-weight:700;color:var(--primary);}
 
 .menu{
   display:flex;
@@ -77,7 +71,7 @@ nav{
   font-size:14px;
 }
 
-.menu a:hover{ color:var(--primary); }
+.menu a:hover{color:var(--primary);}
 
 .hamburger{
   display:none;
@@ -106,13 +100,13 @@ nav{
     display:none;
     animation:slideDown 0.3s ease;
   }
-  .menu.active{ display:flex; }
-  .hamburger{ display:flex; }
+  .menu.active{display:flex;}
+  .hamburger{display:flex;}
 }
 
 @keyframes slideDown{
-  from{opacity:0; transform:translateY(-10px);}
-  to{opacity:1; transform:translateY(0);}
+  from{opacity:0;transform:translateY(-10px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
 /* HERO */
@@ -122,10 +116,7 @@ nav{
   text-align:center;
 }
 
-.hero h1{
-  font-size:32px;
-  color:var(--primary);
-}
+.hero h1{font-size:32px;color:var(--primary);}
 
 .hero p{
   max-width:750px;
@@ -211,8 +202,8 @@ nav{
   color:#fff;
 }
 
-.tab-content{ display:none; }
-.tab-content.active{ display:block; }
+.tab-content{display:none;}
+.tab-content.active{display:block;}
 
 .case-grid{
   display:grid;
@@ -234,9 +225,40 @@ nav{
   object-fit:cover;
 }
 
+.case-card img{cursor:pointer;}
+
 .case-content{
   padding:20px;
   text-align:center;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  align-items:center;
+  justify-content:center;
+}
+
+.lightbox img{
+  max-width:90%;
+  max-height:85%;
+}
+
+.lightbox span{
+  position:absolute;
+  top:20px;
+  right:35px;
+  font-size:40px;
+  color:#fff;
+  cursor:pointer;
 }
 
 footer{
@@ -248,8 +270,7 @@ footer{
 </head>
 
 <body>
-
-<nav>
+  <nav>
   <div class="nav-inner">
     <div class="logo">VINAY THAKUR</div>
     <div class="menu" id="menu">
@@ -275,9 +296,9 @@ footer{
   <div class="contact-icons">
     <a href="mailto:Vinaythkr9@gmail.com" class="icon-btn"><i class="fa-solid fa-envelope"></i></a>
     <a href="tel:+916280629466" class="icon-btn"><i class="fa-solid fa-phone"></i></a>
-    <a href="https://www.linkedin.com/in/vinay-thakur-7244b024a/" class="icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
-    <a href="https://www.behance.net/vinaythakurr" class="icon-btn"><i class="fa-brands fa-behance"></i></a>
-    <a href="https://drive.google.com/drive/folders/1u0c0sX_3zG8" class="icon-btn"><i class="fa-brands fa-google-drive"></i></a>
+    <a href="https://www.linkedin.com/in/vinay-thakur-7244b024a/" class="icon-btn" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="https://www.behance.net/vinaythakurr" class="icon-btn" target="_blank"><i class="fa-brands fa-behance"></i></a>
+    <a href="https://drive.google.com/" class="icon-btn" target="_blank"><i class="fa-brands fa-google-drive"></i></a>
   </div>
 </section>
 
@@ -313,7 +334,6 @@ footer{
   <div class="container">
     <h2>Portfolio</h2>
 
-    <!-- Tabs -->
     <div class="tabs">
       <button class="tab-btn active" onclick="showTab(event,'mockups')">3D Mockups</button>
       <button class="tab-btn" onclick="showTab(event,'videos')">3D Videos</button>
@@ -322,156 +342,72 @@ footer{
       <button class="tab-btn" onclick="showTab(event,'ads')">Creative Ads</button>
     </div>
 
-    <!-- 3D Mockups -->
+    <!-- MOCKUPS -->
     <div id="mockups" class="tab-content active">
       <div class="case-grid">
-
         <div class="case-card">
-          <img src="images/mockup1.jpg">
+          <img src="images/mockup1.jpg" onclick="openLightbox(this.src)">
           <div class="case-content"><h3>Protein Jar</h3><p>Blender 3D Mockup</p></div>
         </div>
-
         <div class="case-card">
-          <img src="images/mockup2.jpg">
+          <img src="images/009.jpg" onclick="openLightbox(this.src)">
           <div class="case-content"><h3>Supplement Bottle</h3><p>Label + Render</p></div>
         </div>
-
         <div class="case-card">
-          <img src="images/mockup3.jpg">
+          <img src="images/mockup3.jpg" onclick="openLightbox(this.src)">
           <div class="case-content"><h3>Capsule Packaging</h3><p>FMCG Branding</p></div>
         </div>
-
         <div class="case-card">
-          <img src="images/mockup4.jpg">
+          <img src="images/mockup4.jpg" onclick="openLightbox(this.src)">
           <div class="case-content"><h3>Box Packaging</h3><p>Product Visualization</p></div>
         </div>
-
       </div>
     </div>
 
-    <!-- 3D Videos -->
+    <!-- 3D VIDEOS -->
     <div id="videos" class="tab-content">
       <div class="case-grid">
-
         <div class="case-card">
-         <video controls><source src="videos/Video1.mp4" type="video/mp4"></video>
+          <video controls>
+            <source src="videos/Video1.mp4" type="video/mp4">
+          </video>
           <div class="case-content"><h3>Rotating Bottle</h3><p>3D Animation</p></div>
-         </div>
-
-        <div class="case-card">
-          <video controls><source src="videos/video2.mp4" type="video/mp4"></video>
-          <div class="case-content"><h3>Product Explainer</h3><p>Motion Design</p></div>
         </div>
-
-        <div class="case-card">
-          <video controls><source src="videos/video3.mp4" type="video/mp4"></video>
-          <div class="case-content"><h3>Label Animation</h3><p>Blender Render</p></div>
-        </div>
-
-        <div class="case-card">
-          <video controls><source src="videos/video4.mp4" type="video/mp4"></video>
-          <div class="case-content"><h3>Commercial Clip</h3><p>Promo Animation</p></div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Product Photography -->
-    <div id="photography" class="tab-content">
-      <div class="case-grid">
-
-        <div class="case-card">
-          <img src="images/photo1.jpg">
-          <div class="case-content"><h3>Healthcare Product</h3><p>Studio Photography</p></div>
-        </div>
-
-        <div class="case-card">
-          <img src="images/photo2.jpg">
-          <div class="case-content"><h3>Supplement Jar</h3><p>Product Shoot</p></div>
-        </div>
-
-        <div class="case-card">
-          <img src="images/photo3.jpg">
-          <div class="case-content"><h3>Box Close-up</h3><p>Detail Capture</p></div>
-        </div>
-
-        <div class="case-card">
-          <img src="images/photo4.jpg">
-          <div class="case-content"><h3>Creative Setup</h3><p>Brand Shoot</p></div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Reels -->
-    <div id="reels" class="tab-content">
-      <div class="case-grid">
-
-        <div class="case-card">
-          <video controls><source src="videos/reel1.mp4" type="video/mp4"></video>
-          <div class="case-content"><h3>Instagram Reel</h3><p>Product Teaser</p></div>
-        </div>
-
-        <div class="case-card">
-          <video controls><source src="videos/reel2.mp4" type="video/mp4"></video>
-          <div class="case-content"><h3>Reel Ad</h3><p>FMCG Promotion</p></div>
-        </div>
-
-        <div class="case-card">
-          <video controls><source src="videos/reel3.mp4" type="video/mp4"></video>
-          <div class="case-content"><h3>Behind The Scene</h3><p>Production Clip</p></div>
-        </div>
-
-        <div class="case-card">
-          <video controls><source src="videos/reel4.mp4" type="video/mp4"></video>
-          <div class="case-content"><h3>Ad Reel</h3><p>Motion Graphic</p></div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Creative Ads -->
-    <div id="ads" class="tab-content">
-      <div class="case-grid">
-
-        <div class="case-card">
-          <img src="images/ad1.jpg">
-          <div class="case-content"><h3>Facebook Ad</h3><p>Pharma Campaign</p></div>
-        </div>
-
-        <div class="case-card">
-          <img src="images/ad2.jpg">
-          <div class="case-content"><h3>Instagram Creative</h3><p>Supplement Branding</p></div>
-        </div>
-
-        <div class="case-card">
-          <img src="images/ad3.jpg">
-          <div class="case-content"><h3>Banner Design</h3><p>FMCG Promotion</p></div>
-        </div>
-
-        <div class="case-card">
-          <img src="images/ad4.jpg">
-          <div class="case-content"><h3>Story Ad</h3><p>Performance Marketing</p></div>
-        </div>
-
       </div>
     </div>
 
   </div>
 </section>
+
 <footer>
 © 2026 Vinay Thakur | Creative Lead & AI Multimedia Specialist
 </footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <span onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img">
+</div>
 
 <script>
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("active");
 }
+
 function showTab(event,tabId){
   document.querySelectorAll('.tab-content').forEach(tab=>tab.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('active'));
   document.getElementById(tabId).classList.add('active');
   event.target.classList.add('active');
+}
+
+function openLightbox(src){
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightbox-img").src=src;
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").style.display="none";
 }
 </script>
 
